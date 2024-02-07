@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class App {
     public static void main(String[] args) {
-        ApplicationContext applicationContext =
+        AnnotationConfigApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(AppConfig.class);
         HelloWorld bean =
                 (HelloWorld) applicationContext.getBean("helloworld");
@@ -15,5 +15,6 @@ public class App {
         Cat bean4 = (Cat) applicationContext.getBean("cat");
         System.out.println("Для пары объектов HelloWorld: " + Objects.equals(bean, bean2));
         System.out.println("Для пары объектов Cat: " + Objects.equals(bean3, bean4));
+        applicationContext.close();
     }
 }
